@@ -9,7 +9,7 @@ I chose to use React as the idea of a single page application was appealing, and
 
 The site also makes use of the service worker provided in CRA to allow the app to be classified as a Progressive Web App by Google's 'Lighthouse'.
 
-If you want to see the logged in functionality, I would advise cloning the code, then going into App.js and finding the "getInitialDetails" function. Normally it checks with the server to see if the user has a valid cookie, but if you comment out the main function and uncomment the function below, you can see what the page looks like to an admin (navigate to different pages for contextual menus). Don't try and submit any data though as you'll run into some headaches. 
+If you want to see the logged in functionality, I would advise cloning the code, then going into App.js and finding the "getInitialDetails" function. Normally it checks with the server to see if the user has a valid cookie, but if you comment out the main function and uncomment the function below, then run npm start, you can see what the page looks like to an admin (navigate to different pages for contextual menus). Don't try and submit any data though as you'll run into some headaches.
 
 
 
