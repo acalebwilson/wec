@@ -149,6 +149,13 @@ class AppWrapper extends React.Component {
       });
   }
 
+  /*getInitialDetails() { 
+    this.props.login({
+      user: "example@example.com",
+      isAdmin: true
+    })
+  }*/
+
   setServerRetry() {
     if (!this.state.serverRetry) {
       this.setState({
