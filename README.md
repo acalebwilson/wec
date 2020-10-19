@@ -1,7 +1,7 @@
 ## WEC
 A prototype website for Whitby Evangelical Church. A portfolio project.
 
-This is the frontend of a portfolio project, and is a prototype design for a local church website in need of improvement (at time of writing). The app is based on the current (website)[https://www.whitbyec.com/], and all text is either pulled straight from there, or is placeholder.
+This is the frontend of a portfolio project, and is a prototype design for a local church website in need of improvement (at time of writing). The app is based on the current [website](https://www.whitbyec.com/), and all text is either pulled straight from there, or is placeholder.
 
 The site is a single page react app, created using create-react-app, with an express - nodejs backend, and with MongoDB as a database. The front end repo can be found [here](https://github.com/acalebwilson/wec). A live version is available [here](https://acalebwilson.com). The project was of interest to me as a way to apply skills I had learned through the [freecodecamp](https://www.freecodecamp.org/) course as it involved both front and backend skills, and has greatly impoved my proficiency with HTML, CSS (SASS), JS (with React and nodejs on the backend), responsive web design, and given me a deeper understanding of both the web development process and software design in general.
 
