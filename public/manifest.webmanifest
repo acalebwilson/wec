@@ -1,0 +1,27 @@
+{
+  "short_name": "WEC",
+  "name": "Whitby Evangelical Church",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "48x48 32x32 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "description": "A prototype site for Whitby Evangelical Church",
+  "start_url": "/home",
+  "display": "standalone",
+  "theme_color": "#187C8C",
+  "background_color": "#ffffff"
+}
