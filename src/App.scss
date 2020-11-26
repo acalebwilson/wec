@@ -473,7 +473,7 @@ header {
         position: relative;
 
         @media screen and (max-width: 841px) {
-            margin: 10px 30px;
+            margin: 30px 30px;
         }
 
         #bg-svg {
@@ -503,102 +503,38 @@ header {
                 top: 0px;
             }
 
-            #home-intro-content {
+            #home-intro-section {
                 z-index: 1;
                 display: grid;
-                grid-template-rows: auto auto 350px auto auto auto;
-                grid-template-columns: auto;
-                grid-template-areas:
-                    "title"
-                    "p1"
-                    "image"
-                    "p2"
-                    "p3"
-                    "button";
-                background: white;
+                grid-template-columns: auto auto;
+                gap: 20px;
 
-                @media screen and (min-width: 841px) {
-                    grid-template-rows: auto auto auto auto auto auto;
-                    grid-template-columns: auto 400px;
-                    grid-template-areas:
-                        "title image"
-                        "p1 image"
-                        "p2 image"
-                        "p3 image"
-                        ". image"
-                        "button image";
-                    grid-column-gap: 20px;
-                    background: none;
+                #home-intro-content {
+                    display: grid;
+                    gap: 20px;
+                    align-self: start;
 
-                    #church-img-wrapper {
-                        #church-img {
-                            border-radius: 22px;
-                        }
+                    #home-intro-text {
+                        display: grid;
+                        gap: 10px;
                     }
-                }
-
-                @media screen and (min-width: 1200px) {
-                    grid-template-rows: auto auto auto auto auto auto auto;
-                    grid-template-columns: auto 500px;
-                    grid-template-areas:
-                        ". image"
-                        "title image"
-                        "p1 image"
-                        "p2 image"
-                        "p3 image"
-                        "button image"
-                        ". image";
-                    grid-column-gap: 20px;
-
                 }
 
                 #home-intro-card-title {
-                    grid-area: title;
                     z-index: 1;
                     font-weight: $regular;
                     font-size: 23px;
-                    padding-top: 20px;
-                }
-
-                #p1 {
-                    grid-area: p1;
-                    z-index: 1;
-                    padding-bottom: 20px;
-                }
-
-                #p2 {
-                    grid-area: p2;
-                    z-index: 1;
-                    padding-top: 20px;
-                }
-
-                #p3 {
-                    grid-area: p3;
-                    z-index: 1;
                 }
 
                 #church-img-wrapper {
-                    grid-area: image;
-
                     #church-img {
-                        background-position: center;
-                        background-size: cover;
-                        background-position: 100% 85%;
-                        width: 100%;
-                        height: 100%;
+                        width: 300px;
+                        height: auto;
+                        border-radius: 22px;
                     }
                 }
 
-                p {
-                    font-size: 15px;
-                    line-height: 25px;
-                }
-
                 #home-button-intro-div {
-                    grid-area: button;
-                    z-index: 1;
-                    padding-top: 20px;
-                    padding-bottom: 20px;
 
                     button {
                         background: map-get($colors, primary);
@@ -609,14 +545,17 @@ header {
                         border-radius: 50px;
                     }
                 }
-
-                .home-card-grid-item {
-                    padding: 10px 0;
-                }
             }
         }
 
         #home-body-content {
+            display: block;
+            @media screen and (max-width: 800px) {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 20px;
+            }
+
             .home-card {
                 width: 100%;
                 display: grid;
@@ -4255,11 +4194,12 @@ body {
                         font-size: 1.1rem;
                         font-weight: $regular;
                     }
+
                     .content {
                         font-size: 0.9rem;
                         color: rgb(56, 56, 56);
                     }
-                }   
+                }
 
             }
 

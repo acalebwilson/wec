@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "../App.css";
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,21 +8,21 @@ import {
   withRouter,
 } from "react-router-dom";
 import PropTypes from "prop-types";
-import Toast from "./components/toast";
-import Home from "./pages/new-home";
-import About from "./pages/about";
-import Events from "./pages/calendar";
-import WhatsOn from "./pages/whats-on";
-import AudioLibrary from "./pages/audio-library";
-import AudioPlayer from "./components/audio-player";
-import Contact from "./pages/contact";
-import SidePageContent from "./components/sidepage-comps/side-home";
-import Footer from "./components/footer";
-import Header from "./components/header";
-import SidePage from "./components/side-page";
-import ToastAudioContent from "./components/toast-audio-content";
+import Toast from "../components/toast";
+import Home from "../pages/new-home";
+import About from "../pages/about";
+import Events from "../pages/calendar";
+import WhatsOn from "../pages/whats-on";
+import AudioLibrary from "../pages/audio-library";
+import AudioPlayer from "../components/audio-player";
+import Contact from "../pages/contact";
+import SidePageContent from "../components/sidepage-comps/side-home";
+import Footer from "../components/footer";
+import Header from "../components/header";
+import SidePage from "../components/side-page";
+import ToastAudioContent from "../components/toast-audio-content";
 import { createStore } from "redux";
-import { logReducer, initialState } from "./redux/reducers";
+import { logReducer, initialState } from "../redux/reducers";
 import { Provider, connect } from "react-redux";
 import {
   loginAction,
@@ -38,14 +38,12 @@ import {
   uploadedAudioFileUrl,
   clearUploadedAudioData,
   sidePageThemeAction,
-} from "./redux/actions";
+} from "../redux/actions";
 import axios from "axios";
 
-import ScrollToTop from "./components/scrollToTop";
+const store = createStore(logReducer, initialState);
 
 export const mobileBreakPoint = 747;
-
-const store = createStore(logReducer, initialState);
 
 class AppWrapper extends React.Component {
   constructor(props) {
@@ -81,6 +79,12 @@ class AppWrapper extends React.Component {
     this.setServerRetry = this.setServerRetry.bind(this);
     this.getInitialDetails = this.getInitialDetails.bind(this);
   }
+
+  static propTypes = {
+    match: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
+  };
 
   componentDidMount() {
     /*if (
@@ -585,17 +589,13 @@ const mapDispatchToProps = (dispatch) => {
 const Presentational = connect(mapStateToProps, mapDispatchToProps)(AppWrapper);
 
 class App extends React.Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <Router>
-          <ScrollToTop>
+    render() {
+      return (
+        <Provider store={store}>
             <Presentational />
-          </ScrollToTop>
-        </Router>
-      </Provider>
-    );
+        </Provider>
+      );
+    }
   }
-}
 
 export default App;

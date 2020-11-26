@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { loginAction, logoutAction, headerAction } from "../redux/actions";
+import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
   constructor(props) {
@@ -178,6 +179,21 @@ class Home extends React.Component {
   }
 
   render() {
+    let internalImage;
+    let externalImage;
+    if (this.props.reduxState.width && this.props.reduxState.width < 633) {
+      internalImage = null; /*(
+        <div id="church-img-wrapper">
+          <img id="church-img" src="/IMG_20200301_121422-edited-new.jpg" />
+        </div>
+      ); */
+    } else {
+      externalImage = (
+        <div id="church-img-wrapper">
+          <img id="church-img" src="/IMG_20200301_121422-edited-new.jpg" />
+        </div>
+      );
+    }
     return (
       <div>
         <div id="main-wrapper-new" className="page-content">
@@ -186,38 +202,45 @@ class Home extends React.Component {
           </div>
           <div id="bg-color" />
           <div id="main-content">
-            <div id="home-card-intro" /*className={this.state.showIntro}*/ className="show">
-              <div id="home-intro-content">
-                <h4 className="home-card-grid-item" id="home-intro-card-title">
-                  Who we are
-                </h4>
-                <p id="p1" className="home-card-grid-item">
-                  Whitby Evangelical Church is based on Whitby's busy Skinner
-                  Street, in the heart of the town. We're a family friendly
-                  church offering two Sunday services as well as a mid week
-                  Bible study meeting.
-                </p>
-                <div id="church-img-wrapper">
+            <div
+              id="home-card-intro"
+              /*className={this.state.showIntro}*/ className="show"
+            >
+              <div id="home-intro-section">
+                <div id="home-intro-content">
+                  <h4
+                    className="home-card-grid-item"
+                    id="home-intro-card-title"
+                  >
+                    Who we are
+                  </h4>
+                  {internalImage}
+                  <div id="home-intro-text">
+                    <p id="p1" className="home-card-grid-item">
+                      Whitby Evangelical Church is based on Whitby's busy
+                      Skinner Street, in the heart of the town. We're a family
+                      friendly church offering two Sunday services as well as a
+                      mid week Bible study meeting.
+                    </p>
+                    <p id="p2" className="home-card-grid-item">
+                      Please have a look around our website. We're still adding
+                      content so please check back regularly. Sunday sermons are
+                      available to listen to online in our Audio Library and our
+                      meeting information and special events on our Calendar.
+                    </p>
+                    <p id="p3" className="home-card-grid-item">
+                      If you'd like to contact us please use the details or
+                      email form on the Contact page.
+                    </p>
+                  </div>
                   <div
-                    id="church-img"
-                    style={{
-                      backgroundImage: `url(/IMG_20200301_121422-edited-new.jpg)`,
-                    }}
-                  />
+                    id="home-button-intro-div"
+                    className="home-card-grid-item"
+                  >
+                    <button>Find out more</button>
+                  </div>
                 </div>
-                <p id="p2" className="home-card-grid-item">
-                  Please have a look around our website. We're still adding
-                  content so please check back regularly. Sunday sermons are
-                  available to listen to online in our Audio Library and our
-                  meeting information and special events on our Calendar.
-                </p>
-                <p id="p3" className="home-card-grid-item">
-                  If you'd like to contact us please use the details or email
-                  form on the Contact page.
-                </p>
-                <div id="home-button-intro-div" className="home-card-grid-item">
-                  <button>Find out more</button>
-                </div>
+                {externalImage}
               </div>
             </div>
             <div id="home-body-content">
@@ -237,7 +260,7 @@ class Home extends React.Component {
                   church offering two Sunday services as well as a mid week
                   Bible study meeting.
                 </p>
-                <button>Find out more</button>
+                <Link to="/whats-on"><button>Find out more</button></Link>
               </InfoCard>
               <InfoCard
                 type="left"
@@ -255,7 +278,7 @@ class Home extends React.Component {
                   church offering two Sunday services as well as a mid week
                   Bible study meeting.
                 </p>
-                <button>Find out more</button>
+                <Link to="/audio-library"><button>Find out more</button></Link>
               </InfoCard>
               <InfoCard
                 type="right"
@@ -273,7 +296,7 @@ class Home extends React.Component {
                   church offering two Sunday services as well as a mid week
                   Bible study meeting.
                 </p>
-                <button>Find out more</button>
+                <Link to="/contact">=<button>Find out more</button></Link>
               </InfoCard>
             </div>
           </div>
@@ -285,10 +308,7 @@ class Home extends React.Component {
 
 const InfoCard = (props) => {
   return (
-    <div
-      className={"home-card " + props.type + " " + props.show}
-      id={props.id}
-    >
+    <div className={"home-card " + props.type + " " + props.show} id={props.id}>
       <div className="home-card-text">{props.children}</div>
       <img
         src={props.imgSrc}

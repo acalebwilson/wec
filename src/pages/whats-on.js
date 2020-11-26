@@ -34,7 +34,7 @@ class WhatsOn extends React.Component {
               <div id="picture">
                 <div id="img-mask" />
                 <img
-                  src={`/api/resources/photo-1553729784-e91953dec042.jpg`}
+                  src={`/photo-1553729784-e91953dec042.jpg`}
                   alt="book"
                 />
               </div>

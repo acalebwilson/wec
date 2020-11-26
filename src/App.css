@@ -505,7 +505,7 @@ header #grid #hamburger-menu.show {
 
 @media screen and (max-width: 841px) {
   #main-wrapper-new #main-content {
-    margin: 10px 30px;
+    margin: 30px 30px;
   }
 }
 
@@ -539,108 +539,42 @@ header #grid #hamburger-menu.show {
   top: 0px;
 }
 
-#main-wrapper-new #main-content #home-card-intro #home-intro-content {
+#main-wrapper-new #main-content #home-card-intro #home-intro-section {
   z-index: 1;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: auto auto 350px auto auto auto;
-      grid-template-rows: auto auto 350px auto auto auto;
-  -ms-grid-columns: auto;
-      grid-template-columns: auto;
-      grid-template-areas: "title" "p1" "image" "p2" "p3" "button";
-  background: white;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  gap: 20px;
 }
 
-@media screen and (min-width: 841px) {
-  #main-wrapper-new #main-content #home-card-intro #home-intro-content {
-    -ms-grid-rows: auto auto auto auto auto auto;
-        grid-template-rows: auto auto auto auto auto auto;
-    -ms-grid-columns: auto 400px;
-        grid-template-columns: auto 400px;
-        grid-template-areas: "title image" "p1 image" "p2 image" "p3 image" ". image" "button image";
-    grid-column-gap: 20px;
-    background: none;
-  }
-  #main-wrapper-new #main-content #home-card-intro #home-intro-content #church-img-wrapper #church-img {
-    border-radius: 22px;
-  }
+#main-wrapper-new #main-content #home-card-intro #home-intro-section #home-intro-content {
+  display: -ms-grid;
+  display: grid;
+  gap: 20px;
+  -ms-grid-row-align: start;
+      align-self: start;
 }
 
-@media screen and (min-width: 1200px) {
-  #main-wrapper-new #main-content #home-card-intro #home-intro-content {
-    -ms-grid-rows: auto auto auto auto auto auto auto;
-        grid-template-rows: auto auto auto auto auto auto auto;
-    -ms-grid-columns: auto 500px;
-        grid-template-columns: auto 500px;
-        grid-template-areas: ". image" "title image" "p1 image" "p2 image" "p3 image" "button image" ". image";
-    grid-column-gap: 20px;
-  }
+#main-wrapper-new #main-content #home-card-intro #home-intro-section #home-intro-content #home-intro-text {
+  display: -ms-grid;
+  display: grid;
+  gap: 10px;
 }
 
-#main-wrapper-new #main-content #home-card-intro #home-intro-content #home-intro-card-title {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: title;
+#main-wrapper-new #main-content #home-card-intro #home-intro-section #home-intro-card-title {
   z-index: 1;
   font-weight: 400;
   font-size: 23px;
-  padding-top: 20px;
 }
 
-#main-wrapper-new #main-content #home-card-intro #home-intro-content #p1 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: p1;
-  z-index: 1;
-  padding-bottom: 20px;
+#main-wrapper-new #main-content #home-card-intro #home-intro-section #church-img-wrapper #church-img {
+  width: 300px;
+  height: auto;
+  border-radius: 22px;
 }
 
-#main-wrapper-new #main-content #home-card-intro #home-intro-content #p2 {
-  -ms-grid-row: 4;
-  -ms-grid-column: 1;
-  grid-area: p2;
-  z-index: 1;
-  padding-top: 20px;
-}
-
-#main-wrapper-new #main-content #home-card-intro #home-intro-content #p3 {
-  -ms-grid-row: 5;
-  -ms-grid-column: 1;
-  grid-area: p3;
-  z-index: 1;
-}
-
-#main-wrapper-new #main-content #home-card-intro #home-intro-content #church-img-wrapper {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 1;
-  grid-area: image;
-}
-
-#main-wrapper-new #main-content #home-card-intro #home-intro-content #church-img-wrapper #church-img {
-  background-position: center;
-  background-size: cover;
-  background-position: 100% 85%;
-  width: 100%;
-  height: 100%;
-}
-
-#main-wrapper-new #main-content #home-card-intro #home-intro-content p {
-  font-size: 15px;
-  line-height: 25px;
-}
-
-#main-wrapper-new #main-content #home-card-intro #home-intro-content #home-button-intro-div {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: button;
-  z-index: 1;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-#main-wrapper-new #main-content #home-card-intro #home-intro-content #home-button-intro-div button {
+#main-wrapper-new #main-content #home-card-intro #home-intro-section #home-button-intro-div button {
   background: #187C8C;
   color: white;
   padding: 12px 0;
@@ -649,8 +583,18 @@ header #grid #hamburger-menu.show {
   border-radius: 50px;
 }
 
-#main-wrapper-new #main-content #home-card-intro #home-intro-content .home-card-grid-item {
-  padding: 10px 0;
+#main-wrapper-new #main-content #home-body-content {
+  display: block;
+}
+
+@media screen and (max-width: 800px) {
+  #main-wrapper-new #main-content #home-body-content {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(220px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
 }
 
 #main-wrapper-new #main-content #home-body-content .home-card {
