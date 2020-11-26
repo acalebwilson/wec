@@ -5,9 +5,7 @@ import {
   Switch,
   Route,
   Redirect,
-  withRouter,
 } from "react-router-dom";
-import PropTypes from "prop-types";
 import Toast from "./components/toast";
 import Home from "./pages/new-home";
 import About from "./pages/about";

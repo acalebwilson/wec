@@ -517,6 +517,11 @@ header {
                     #home-intro-text {
                         display: grid;
                         gap: 10px;
+
+                        p {
+                            font-size: 1rem;
+
+                        }
                     }
                 }
 
@@ -550,6 +555,7 @@ header {
 
         #home-body-content {
             display: block;
+
             @media screen and (max-width: 800px) {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

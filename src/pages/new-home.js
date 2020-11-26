@@ -212,7 +212,7 @@ class Home extends React.Component {
                     className="home-card-grid-item"
                     id="home-intro-card-title"
                   >
-                    Who we are
+                    Who we are today
                   </h4>
                   {internalImage}
                   <div id="home-intro-text">
@@ -296,7 +296,7 @@ class Home extends React.Component {
                   church offering two Sunday services as well as a mid week
                   Bible study meeting.
                 </p>
-                <Link to="/contact">=<button>Find out more</button></Link>
+                <Link to="/contact"><button>Find out more</button></Link>
               </InfoCard>
             </div>
           </div>
