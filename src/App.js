@@ -59,6 +59,7 @@ class AppWrapper extends React.Component {
       toastStack: [],
       formActive: false,
       showAreYouSure: "hide",
+      showToggleAdmin: true
     };
     this.componentDidMount = this.componentDidMount.bind(this);
     this.componentWillUnmount = this.componentWillUnmount.bind(this);
