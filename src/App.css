@@ -1215,6 +1215,13 @@ input {
   color: white;
 }
 
+#file-upload-area button.disabled {
+  pointer-events: none;
+  background-color: #bbbbbb;
+  color: #e7e7e7;
+  border: 1px solid #bbbbbb;
+}
+
 #file-upload-area #file-wrapper {
   width: 100%;
   position: relative;
@@ -3864,7 +3871,7 @@ button {
   color: white;
 }
 
-.audio-form button.upload.disabled {
+.audio-form button.disabled {
   background: whitesmoke;
   pointer-events: none;
   border: 1px solid #b8b8b8;
@@ -4679,5 +4686,73 @@ body.noscroll {
   #side-page .side-page-content .side-page-section.login {
     min-width: 0;
   }
+}
+
+#admin-toggle-container {
+  position: fixed;
+  top: 50px;
+  left: 0px;
+  padding: 10px 10px 10px 20px;
+  background: #575757;
+  z-index: 10;
+  width: 200px;
+  color: white;
+  -webkit-box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.13);
+          box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.13);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+  -webkit-transform: translateX(-85%);
+          transform: translateX(-85%);
+  -webkit-transition: 300ms ease;
+  transition: 300ms ease;
+}
+
+#admin-toggle-container.show {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+#admin-toggle-container #admin-toggle-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5px;
+}
+
+#admin-toggle-container #admin-toggle-controls.on {
+  background: #187C8C;
+}
+
+#admin-toggle-container #admin-toggle-controls button {
+  padding: 5px;
+  background: white;
+  color: black;
+}
+
+#admin-toggle-container #admin-toggle-controls button:hover {
+  background: #187C8C;
+  color: white;
+}
+
+#admin-toggle-container #admin-toggle-hide {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
+}
+
+#admin-toggle-container #admin-toggle-hide:hover {
+  background-color: white;
+  color: black;
 }
 /*# sourceMappingURL=App.css.map */

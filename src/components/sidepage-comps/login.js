@@ -42,7 +42,6 @@ class Login extends React.Component {
       })
       .then((res) => {
         if (res.status === 200) {
-          console.log(res.data.user);
           this.props.login(res.data.user);
           this.props.setPage("login success");
         } else {

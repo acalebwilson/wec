@@ -18,6 +18,7 @@ import {
 } from "../../redux/actions";
 import FormSection from "../formSection";
 import axios from "axios";
+import FileUpload from './FileUpload'
 
 class Audio extends React.Component {
   render() {
@@ -46,6 +47,7 @@ class Audio extends React.Component {
             resetFormData={this.props.resetFormData}
             formActive={this.props.formActive}
             showAreYouSureState={this.props.showAreYouSureState}
+            adminShowcaseMode={this.props.adminShowcaseMode}
           />
         </div>
       </div>
@@ -259,12 +261,10 @@ class AudioForm extends React.Component {
       default:
         break;
     }
-    console.log("setting form active");
     this.props.setFormActive();
   }
 
   handleSubmit() {
-    console.log("submitting!");
     this.props.approveAudioData();
     this.props.closeSide(false);
   }
@@ -281,12 +281,9 @@ class AudioForm extends React.Component {
       })
       .then((res) => {
         if (res.status === 200) {
-          console.log("Success");
           this.props.getSermons();
           this.props.setFormInactive();
           this.props.closeSide();
-        } else {
-          console.log("Error");
         }
       });
   }
@@ -559,7 +556,8 @@ class AudioForm extends React.Component {
         audioUploadType &&
         audioUploadDate &&
         audioUploadSeries &&
-        audioUploadReferences
+        audioUploadReferences &&
+        !this.props.adminShowcaseMode
       ) {
         submitButtons = (
           <div className="audio-button-div">
@@ -585,7 +583,7 @@ class AudioForm extends React.Component {
                 this.handleSubmit();
               }}
             >
-              Save Changes
+              {this.props.adminShowcaseMode ? "Showcase Mode" : "Save Changes"}
             </button>
             {cancelButton}
           </div>
@@ -604,6 +602,7 @@ class AudioForm extends React.Component {
           handleFileUpload={this.handleFileUpload}
           valid
           fileData={this.state.fileData}
+          adminShowcaseMode={this.props.adminShowcaseMode}
         />
       );
     }
@@ -927,42 +926,6 @@ const ReferenceForm = (props) => {
 };
 
 export { ReferenceForm, RefCard };
-
-const FileUpload = (props) => {
-  let uploadArea;
-  if (!props.file) {
-    uploadArea = (
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          props.handleClick();
-        }}
-      >
-        Choose Audio File
-      </button>
-    );
-  } else {
-    uploadArea = (
-      <div id="file-wrapper">
-        <div id="bar">
-          <p>{props.file.name}</p>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <FormSection valid={props.valid}>
-      <input
-        type="file"
-        style={{ display: "none" }}
-        ref={props.audioRef}
-        onChange={props.handleFileUpload}
-      />
-      <div id="file-upload-area">{uploadArea}</div>
-    </FormSection>
-  );
-};
 
 const mapStateToProps = (state) => {
   return { reduxState: state };

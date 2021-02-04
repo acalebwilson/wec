@@ -30,7 +30,9 @@ import {
   AUDIO_DATA_READY,
   AUDIO_EDIT_ID,
   CURRENT_EVENT,
-  SIDE_PAGE_THEME
+  SIDE_PAGE_THEME,
+  ADMIN_SHOWCASE_TOGGLE_ON,
+  ADMIN_SHOWCASE_TOGGLE_OFF,
 } from "./types";
 
 export const initialState = {
@@ -55,7 +57,8 @@ export const initialState = {
   audioUploadType: "",
   audioDataReady: false,
   event: {},
-  theme: "light"
+  theme: "light",
+  adminShowcaseMode: false
 };
 
 export const logReducer = (state, action) => {
@@ -217,7 +220,6 @@ export const logReducer = (state, action) => {
         audioUploadReferences: []
       };
     case AUDIO_DATA_READY:
-      console.log("audio data ready")
         return {
             ...state,
             audioDataReady: true
@@ -232,6 +234,16 @@ export const logReducer = (state, action) => {
         ...state,
         event: action.event
       }
+    case ADMIN_SHOWCASE_TOGGLE_ON:
+        return {
+          ...state,
+          adminShowcaseMode: true
+        }
+      case ADMIN_SHOWCASE_TOGGLE_OFF:
+        return {
+          ...state,
+          adminShowcaseMode: false
+        }
     default:
       return state;
   }

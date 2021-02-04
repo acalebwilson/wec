@@ -95,6 +95,7 @@ class SideHome extends React.Component {
             resetFormData={this.props.resetFormData}
             formActive={this.props.formActive}
             showAreYouSureState={this.props.showAreYouSureState}
+            adminShowcaseMode={this.props.reduxState.adminShowcaseMode}
           />
         );
         break;
@@ -105,6 +106,7 @@ class SideHome extends React.Component {
             areYouSure={this.props.areYouSure}
             setFormActive={this.props.setFormActive}
             setFormInactive={this.props.setFormInactive}
+            adminShowcaseMode={this.props.reduxState.adminShowcaseMode}
           />
         );
         break;
@@ -115,12 +117,18 @@ class SideHome extends React.Component {
             areYouSure={this.props.areYouSure}
             setFormActive={this.props.setFormActive}
             setFormInactive={this.props.setFormInactive}
+            adminShowcaseMode={this.props.reduxState.adminShowcaseMode}
           />
         );
         break;
       case "add event":
         title = "Add Event";
-        page = <AddEvent areYouSure={this.props.areYouSure} />;
+        page = (
+          <AddEvent
+            areYouSure={this.props.areYouSure}
+            adminShowcaseMode={this.props.reduxState.adminShowcaseMode}
+          />
+        );
         break;
       case "login":
         title = "Login";
@@ -156,6 +164,7 @@ class SideHome extends React.Component {
             resetFormData={this.props.resetFormData}
             formActive={this.props.formActive}
             showAreYouSureState={this.props.showAreYouSureState}
+            adminShowcaseMode={this.props.reduxState.adminShowcaseMode}
             type="edit"
           />
         );
@@ -220,14 +229,12 @@ class Home extends React.Component {
   componentDidMount() {
     this.setState({
       timeOut: setTimeout(() => {
-        console.log("calling!");
         this.props.closeSide();
       }, 1000),
     });
   }
 
   componentWillUnmount() {
-    console.log("Clearing that timeout!")
     clearTimeout(this.state.timeOut);
   }
 

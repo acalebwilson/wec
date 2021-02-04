@@ -34,7 +34,6 @@ class Hamburger extends React.Component {
   logoutRequest() {
     axios.get("/api/logout").then((res) => {
       if (res.status === 200) {
-        console.log(res);
         this.props.logout();
       }
     });

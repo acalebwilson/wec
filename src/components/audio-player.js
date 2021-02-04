@@ -37,14 +37,12 @@ class LocalAudioPlayer extends React.Component {
             let element = document.getElementById("local-audio")
             element.addEventListener("timeupdate", e => {
                 if (!this.state.mousedown) {
-                    console.log("mouse is not down!")
                     this.setState({
                         currentTime: e.target.currentTime,
                         duration: e.target.duration,
                         leftAmount: (e.target.currentTime/e.target.duration) * 100
                     })
                 } else {
-                    console.log("mouse is down!", this.state.leftAmount)
                     this.setState({
                         currentTime: e.target.duration * (this.state.leftAmount/100),
                         duration: e.target.duration
@@ -57,7 +55,7 @@ class LocalAudioPlayer extends React.Component {
                 if (duration > 0) {
                     for (let i = 0; i < element.buffered.length; i++) {
                         if (element.buffered.start(element.buffered.length - 1 - i) < element.currentTime) {
-                            console.log("woop woop!")
+                            
                             document.getElementById("buffer").style.width = ((element.buffered.end(element.buffered.length - 1 - i) / duration) * 100 + "%")
                             break
                         }
@@ -131,7 +129,6 @@ class LocalAudioPlayer extends React.Component {
     handleSlider(xPercent, type) {
         switch (type) {
             case "mousedown":
-                console.log("mousedown!")
                 if (this.props.reduxState.isPlaying) {
                     this.props.pauseAudio()
                 }
@@ -148,7 +145,6 @@ class LocalAudioPlayer extends React.Component {
                 })
                 break
             case "mouseup":
-                console.log("mouseup!")
                 if (xPercent) {
                     this.setState({
                         ...this.state,

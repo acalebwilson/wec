@@ -1081,6 +1081,13 @@ input {
             background: map-get($colors, primary);
             color: white;
         }
+
+        &.disabled {
+            pointer-events: none;
+            background-color: rgb(187, 187, 187);
+            color: rgb(231, 231, 231);
+            border: 1px solid rgb(187, 187, 187);
+        }
     }
 
     #file-wrapper {
@@ -3458,15 +3465,12 @@ button {
             color: white;
         }
 
-        &.upload {
-
-            &.disabled {
-                background: rgb(245, 245, 245);
-                pointer-events: none;
-                border: 1px solid rgb(184, 184, 184);
-                color: rgb(184, 184, 184);
-                cursor: auto;
-            }
+        &.disabled {
+            background: rgb(245, 245, 245);
+            pointer-events: none;
+            border: 1px solid rgb(184, 184, 184);
+            color: rgb(184, 184, 184);
+            cursor: auto;
         }
 
 
@@ -4217,6 +4221,63 @@ body {
                 }
             }
 
+        }
+    }
+
+
+}
+
+#admin-toggle-container {
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    padding: 10px 10px 10px 20px;
+    //background: map-get($colors, primary);
+    background: rgb(87, 87, 87);
+    z-index: 10;
+    width: 200px;
+    color: white;
+    box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.13);
+    display: flex;
+    gap: 5px;
+    transform: translateX(-85%);
+    transition: 300ms ease;
+
+    &.show {
+        transform: translateX(0%);
+    }
+
+    #admin-toggle-controls {
+
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        &.on {
+            background: map-get($colors, primary);
+        }
+
+        button {
+            padding: 5px;
+            background: white;
+            color: black;
+
+            &:hover {
+                background: map-get($colors, primary);
+                color: white;
+            }
+        }
+    }
+
+    #admin-toggle-hide {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+
+        &:hover {
+            background-color: white;
+            color: black;
         }
     }
 

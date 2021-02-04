@@ -19,6 +19,7 @@ import Footer from "./components/footer";
 import Header from "./components/header";
 import SidePage from "./components/side-page";
 import ToastAudioContent from "./components/toast-audio-content";
+import ToggleAdmin from "./components/toggleAdmin";
 import { createStore } from "redux";
 import { logReducer, initialState } from "./redux/reducers";
 import { Provider, connect } from "react-redux";
@@ -36,6 +37,8 @@ import {
   uploadedAudioFileUrl,
   clearUploadedAudioData,
   sidePageThemeAction,
+  adminShowcaseToggleOn,
+  adminShowcaseToggleOff
 } from "./redux/actions";
 import axios from "axios";
 
@@ -78,6 +81,8 @@ class AppWrapper extends React.Component {
     this.verifyLogin = this.verifyLogin.bind(this);
     this.setServerRetry = this.setServerRetry.bind(this);
     this.getInitialDetails = this.getInitialDetails.bind(this);
+    this.toggleAdminMode = this.toggleAdminMode.bind(this);
+    this.toggleShowAdminMode = this.toggleShowAdminMode.bind(this);
   }
 
   componentDidMount() {
@@ -222,6 +227,8 @@ class AppWrapper extends React.Component {
     if (this.props.reduxState.audioDataReady && audioFileUrl) {
       this.handleAudioSubmit();
     }
+
+    console.log(this.props.reduxState.adminShowcaseMode)
   }
 
   handleAudioSubmit() {
@@ -364,6 +371,27 @@ class AppWrapper extends React.Component {
     });
   }
 
+  toggleAdminMode() {
+    if (this.props.reduxState.loggedIn) {
+      this.props.logout();
+      this.props.adminShowcaseToggleOff();
+    } else {
+      this.props.login({
+        username: "test",
+        isAdmin: true
+      })
+      this.props.adminShowcaseToggleOn();
+    }
+  }
+
+  toggleShowAdminMode() {
+    if (this.state.showToggleAdmin) {
+      this.setState({showToggleAdmin: false})
+    } else {
+      this.setState({showToggleAdmin: true})
+    }
+  }
+
   openSide(page) {}
 
   render() {
@@ -435,6 +463,12 @@ class AppWrapper extends React.Component {
         <div>
           <Route exact path="/" render={() => <Redirect to="/home" />} />
           <Header />
+          <ToggleAdmin 
+            adminMode={this.props.reduxState.loggedIn} 
+            handleAdminToggle={this.toggleAdminMode}
+            showToggleAdmin={this.state.showToggleAdmin}
+            toggleShowAdminMode={this.toggleShowAdminMode}
+          />
           <div id="pages">
             <Switch>
               <Route component={Home} exact path="/home" />
@@ -577,6 +611,12 @@ const mapDispatchToProps = (dispatch) => {
     setSidePageTheme: (theme) => {
       dispatch(sidePageThemeAction(theme));
     },
+    adminShowcaseToggleOn: () => {
+      dispatch(adminShowcaseToggleOn());
+    },
+    adminShowcaseToggleOff: () => {
+      dispatch(adminShowcaseToggleOff());
+    }
   };
 };
 

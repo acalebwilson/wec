@@ -310,9 +310,6 @@ class AppWrapper extends React.Component {
       .then((res) => {
         this.props.setAudioFileUrl(res.data);
       })
-      .catch((err) => {
-        console.log(err);
-      });
   }
 
   showAudioToast() {

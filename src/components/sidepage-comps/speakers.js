@@ -40,6 +40,7 @@ class Speaker extends React.Component {
             getSpeakers={this.getSpeakers}
             setFormInactive={this.props.setFormActive}
             setFormActive={this.props.setFormActive}
+            adminShowcaseMode={this.props.adminShowcaseMode}
           />
         </div>
         <div className="side-page-section side-page-list">
@@ -169,13 +170,13 @@ class AddSpeakerForm extends React.Component {
           />
         </FormSection>
         <button
-          className="upload"
+          className={`upload ${this.props.adminShowcaseMode ? "disabled" : ""}`}
           onClick={(e) => {
             e.preventDefault();
             this.handleSubmit();
           }}
         >
-          Add
+          {this.props.adminShowcaseMode ? "Showcase Mode" : "Add"}
         </button>
       </form>
     );

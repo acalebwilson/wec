@@ -59,8 +59,6 @@ class Events extends React.Component {
   setEventDetails(details) {
     this.setState({ details, showEventDetails: "hide" });
     this.props.currentEventId(details);
-
-    console.log(details)
     
     if (this.props.reduxState.width < 747) {
       this.props.setSide("event-details");

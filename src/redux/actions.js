@@ -30,7 +30,9 @@ import {
   AUDIO_DATA_READY,
   AUDIO_EDIT_ID,
   CURRENT_EVENT,
-  SIDE_PAGE_THEME
+  SIDE_PAGE_THEME,
+  ADMIN_SHOWCASE_TOGGLE_ON,
+  ADMIN_SHOWCASE_TOGGLE_OFF
 } from "./types";
 
 export const currentEventAction = (event) => {
@@ -246,5 +248,17 @@ export const uploadedAudioFileData = (data) => {
 export const clearUploadedAudioData = () => {
   return {
     type: CLEAR_UPLOADED_AUDIO_DATA
+  }
+}
+
+export const adminShowcaseToggleOn = () => {
+  return {
+    type: ADMIN_SHOWCASE_TOGGLE_ON
+  }
+}
+
+export const adminShowcaseToggleOff = () => {
+  return {
+    type: ADMIN_SHOWCASE_TOGGLE_OFF
   }
 }

@@ -16,7 +16,6 @@ const Footer = (props) => {
   const logoutRequest = () => {
     axios.get("/api/logout").then((res) => {
       if (res.status === 200) {
-        console.log(res);
         props.logout();
       }
     });

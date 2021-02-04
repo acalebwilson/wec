@@ -20,6 +20,7 @@ class AddEvent extends React.Component {
         <AddEventForm
           setSide={this.props.setSide}
           addEvents={this.props.addEvents}
+          adminShowcaseMode={this.props.adminShowcaseMode}
         />
       </div>
     );
@@ -119,17 +120,6 @@ class AddEventForm extends React.Component {
       return;
     }
 
-    console.log({
-      title: this.state.title,
-      type: this.state.type,
-      description: this.state.description,
-      startDate: this.state.startDate,
-      startTime: this.state.startTime,
-      endDate: this.state.endDate,
-      endTime: this.state.endTime,
-      speaker: this.state.speaker,
-    });
-
     axios
       .post("/api/addEvent", {
         title: this.state.title,
@@ -224,7 +214,6 @@ class AddEventForm extends React.Component {
       });
     }
     speakers = [...defaultSpeaker, ...speakers];
-
     return (
       <form className="side-page-section audio-form">
         <FormSection valid={this.state.titleValid}>
@@ -308,13 +297,13 @@ class AddEventForm extends React.Component {
         </FormSection>
         <p className="footnote">*optional field</p>
         <button
-          className="upload"
+          className={`upload ${this.props.adminShowcaseMode ? "disabled" : ""}`}
           onClick={(e) => {
             e.preventDefault();
             this.handleSubmit();
           }}
         >
-          Add
+          {this.props.adminShowcaseMode ? "Showcase Mode" : "Add"}
         </button>
       </form>
     );
