@@ -47,9 +47,12 @@ class SideHome extends React.Component {
         this.setState({details})
       }
     }*/
-    let details = this.props.reduxState.eventList.filter((d) => {
-      return d._id === this.props.reduxState.eventId;
-    })[0];
+    let details = [];
+    if (this.props.reduxState.eventList) {
+      details = this.props.reduxState.eventList.filter((d) => {
+        return d._id === this.props.reduxState.eventId;
+      })[0];
+    }
     if (!this.state.details.title && this.props.reduxState.eventId) {
       this.setState({ details });
     }
