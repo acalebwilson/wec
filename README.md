@@ -7,8 +7,6 @@ The site is a single page react app, created using create-react-app, with an exp
 
 I chose to use React as the idea of a single page application was appealing, and sounded like an interesting thing to build. Additionally, the framework itself seemed (after a bit of learning) quite intuitive. I deliberately used few React packages on the frontend to give myself a better understanding of the problems the packages solved. My main focus throughout the project was on functionality, though I found myself bogged down in making design decisions far too often - I don't claim to be a designer, and the current design took a long time and several iterations to reach it's present state. Working through this project also made me very aware of the risks of 'scope creep', as I kept imagining new and exciting things I could add which then stole hours of my time implementing, only to realise (often) that the solution was excessively convoluted and not that useful, as well as increasing the overall time spent. I learnt to save time by prototyping on the layout, so in future I plan to do the same with features and implementation. If you take the time to look through some of the code you'll probably spot old functions I missed, which are relics of some bygone functionality. 
 
-The site also makes use of the service worker provided in CRA to allow the app to be classified as a Progressive Web App by Google's 'Lighthouse'.
-
 
 
 
