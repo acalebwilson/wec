@@ -676,7 +676,7 @@ class AudioCard extends React.Component {
         <div className="button-div">
           {edit}
           {deleteBtn}
-          <button>Download</button>
+          <button><a href={this.props.audio.url} download>Download</a></button>
         </div>
       </div>
     );
